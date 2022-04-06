@@ -4,10 +4,11 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-    # def hello_world
-    #   session[:count] = (session[:count] || 0) + 1
-    #   render json: { count: session[:count] }
-    # end
+    # test route:  http://localhost:3000/hello
+    def hello_world
+      session[:count] = (session[:count] || 0) + 1
+      render json: { count: session[:count] }
+    end
 
     # TODO refactor this later
     # def current_user
