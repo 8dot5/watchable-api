@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_238621) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.string "service_type"
-    t.boolean "subscribed"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -44,10 +36,9 @@ ActiveRecord::Schema.define(version: 2022_04_05_238621) do
     t.string "rating"
     t.string "poster_url"
     t.string "trailer_url"
-    t.string "streaming"
+    t.boolean "streaming"
     t.integer "category_id"
     t.integer "user_id"
-    t.integer "service_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,12 +7,12 @@ class CreateWatchables < ActiveRecord::Migration[6.1]
       t.string :rating
       t.string :poster_url
       t.string :trailer_url
-      t.string :streaming
+      t.boolean :streaming
 
       # foreign keys
       t.integer :category_id
       t.integer :user_id
-      t.integer :service_id
+      # t.integer :service_id
 
       t.timestamps
     end

@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     if user
         render json: user, include: [:watchables, :categories]
     else
+    # if user
+    #   render json: user
+    # else
         render json: { errors: 'Not authorized' }, status: :unauthorized
     end
   end
