@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  wrap_parameters :user, include: [:username, :email, :password, :password_confirmation]
+  wrap_parameters :user, include: [:email, :username, :password, :password_confirmation]
 
   # GET /users | show all users
   def index
@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 
   # GET /me | get current user
   def show
-    current_user = User.find_by(id: session[:user_id])
+    user = User.find_by(id: session[:user_id])
 
-    if current_user
-        render json: current_user, include: [:watchables, :categories]
+    if user
+        render json: user, include: [:watchables, :categories]
     else
         render json: { errors: 'Not authorized' }, status: :unauthorized
     end
@@ -19,11 +19,11 @@ class UsersController < ApplicationController
 
   # POST /users | create new users
   def create
-    new_user = User.create(user_params)
+    user = User.create!(user_params)
 
-    if new_user
+    if user
       session[:user_id] = user.id
-      render json: new_user, include: ['watchables'], status: :created
+      render json: user, include: ['watchables'], status: :created
     else
       render json: { errors: 'Not authorized' }, status: :unauthorized
     end
