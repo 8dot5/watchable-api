@@ -1,5 +1,5 @@
 class WatchablesController < ApplicationController
-  # before_action :find_watchable, only: [:show, :update, :destroy]
+  before_action :find_watchable, only: [:show, :update, :destroy]
 
   # GET /watchables | show all watchables
   def index
