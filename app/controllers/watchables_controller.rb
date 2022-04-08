@@ -25,18 +25,21 @@ class WatchablesController < ApplicationController
   # end
   def create
     current_user = User.find(session[:user_id])
-    # @watchable = current_user.watchables.build(watchable_params)
-    @watchable = current_user.watchables.build(watchable_params)
-    if @watchable.save
-      render json: @watchable, status: :created, location: @watchable
+
+    new_watchable = current_user.watchables.build(watchable_params)
+
+    if new_watchable
+      new_watchable.save
+      render json: new_watchable, status: :created, location: new_watchable
     else
-      render json: @watchable.errors, status: :unprocessable_entity
+      render json: new_watchable.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH /watchables/# | update a watchable
   def update
-    if find_watchable.update(watchable_params)
+    if find_watchable
+      find_watchable.update(watchable_params)
       render json: find_watchable
     else
       render json: find_watchable.errors, status: :unprocessable_entity
