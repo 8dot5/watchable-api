@@ -12,17 +12,6 @@ class WatchablesController < ApplicationController
   end
 
   # POST /watchables | create a watchable
-  # def create
-  #   user = User.find(session[:user_id])
-
-  #   new_watchable = user.watchables.build(watchable_params)
-
-  #   if new_watchable.save
-  #     render json: new_watchable, status: :created, location: new_watchable
-  #   else
-  #     render json: new_watchable.errors, status: :unprocessable_entity
-  #   end
-  # end
   def create
     current_user = User.find(session[:user_id])
 
