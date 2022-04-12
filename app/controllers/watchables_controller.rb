@@ -1,15 +1,17 @@
 class WatchablesController < ApplicationController
-  before_action :find_watchable, only: [:show, :update, :destroy]
+  # before_action :find_watchable, only: [:show, :update, :destroy]
+  before_action :authorize
 
   # GET /watchables | show all watchables
   def index
+    # return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     render json: Watchable.all, status: :ok
   end
 
   # GET /watchables/# | get a watchable
-  def show
-    render json: find_watchable, status: :ok
-  end
+  # def show
+  #   render json: find_watchable, status: :ok
+  # end
 
   # POST /watchables | create a watchable
   def create
@@ -42,6 +44,10 @@ class WatchablesController < ApplicationController
   end
 
   private
+  # Before any of this Controller's actions can take place, users must successfully login
+  def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+  end
 
   def find_watchable
     Watchable.find(params[:id])
