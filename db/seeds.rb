@@ -7,10 +7,8 @@ Category.destroy_all
 Watchable.destroy_all
 
 puts '👤  Creating Users...'
-u01 = User.create(username: 'Chun', email: 'chun@chun.codes', password: '123', password_confirmation: '123')
-u02 = User.create(username: 'urbnmyr', email: 'urbnmyr@gmail.com', password: '123', password_confirmation: '123')
-u03 = User.create(username: 'Bo', email: 'bo@chunyi.dev', password: '123', password_confirmation: '123')
-u04 = User.create(username: 'Poncho', email: 'poncho@chunyi.dev', password: '123', password_confirmation: '123')
+u01 = User.create(username: 'Chun', email: 'chun@chun.codes', password: '1234', password_confirmation: '1234')
+u02 = User.create(username: 'PONCHO', email: 'poncho@chunyi.dev', password: '1234', password_confirmation: '1234')
 
 puts '🏷️  Creating Categories...'
 c01 = Category.create(name: 'Action')
@@ -38,9 +36,10 @@ c13 = Category.create(name: 'Thriller')
 # s8 = Service.create(name: 'Movie theaters', service_type: 'Eww, I gotta go outside?', subscribed: false)
 
 puts '▶️ Creating Watchables...'
-Watchable.create(title: "Top Gun: Maverick", summary: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.", rating: "PG-13", favorite: false, streaming: false, poster_url: "https://m.media-amazon.com/images/M/MV5BMmIwZDMyYWUtNTU0ZS00ODJhLTg2ZmEtMTk5ZmYzODcxODYxXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg", trailer_url: "https://youtu.be/giXco2jaZ_4", user_id: u02.id, category_id: c01.id)
-Watchable.create(title: "Top Gun", summary: "As students at the United States Navy's elite fighter weapons school compete to be best in the class, one daring young pilot learns a few things from a civilian instructor that are not taught in the classroom.", rating: "PG-13", favorite: false, streaming: false, poster_url: "https://m.media-amazon.com/images/M/MV5BZjQxYTA3ODItNzgxMy00N2Y2LWJlZGMtMTRlM2JkZjI1ZDhhXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_FMjpg_UX1035_.jpg", trailer_url: "https://youtu.be/ArOMXELHiLw", user_id: u02.id, category_id: c01.id)
-Watchable.create(title: "House of Gucci", summary: "When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel their legacy and triggers a reckless spiral of betrayal, decadence, revenge, and ultimately...murder.", rating: "R", favorite: false, streaming: true, poster_url: "https://m.media-amazon.com/images/M/MV5BYzdlMTMyZWQtZWNmMC00MTJiLWIyMWMtM2ZlZDdlYzZhNTc0XkEyXkFqcGdeQXVyMTMzNDE5NDM2._V1_FMjpg_UX1080_.jpg", trailer_url: "https://youtu.be/pGi3Bgn7U5U", user_id: u01.id, category_id: c04.id)
-Watchable.create(title: "All of Us Are Dead", summary: "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out or turn into one of the rabid infected.", rating: "TV-MA", favorite: false, streaming: true, poster_url: "https://m.media-amazon.com/images/M/MV5BOTY1ZGM2YzQtMTBjZC00NjE2LWJlNzUtYjA0YjYxNzBjMmRjXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg", trailer_url: "https://youtu.be/pGi3Bgn7U5U", user_id: u01.id, category_id: c01.id)
+Watchable.create(title: "2022 NFL Draft", summary: "April 28-30.", rating: "G", favorite: false, streaming: true, poster_url: "https://m.psecn.photoshelter.com/img-get/I0000KTeAzeB1xVg/s/1000?1649817905", trailer_url: "", user_id: u01.id, category_id: c12.id)
+Watchable.create(title: "Top Gun: Maverick", summary: "They killed off Goose!", rating: "PG-13", favorite: false, streaming: false, poster_url: "https://m.psecn.photoshelter.com/img-get/I0000XCkLVmMNBUk/s/1000?1649829723", trailer_url: "https://youtu.be/giXco2jaZ_4", user_id: u01.id, category_id: c01.id)
+Watchable.create(title: "Top Gun", summary: "Original.", rating: "PG-13", favorite: false, streaming: false, poster_url: "https://m.psecn.photoshelter.com/img-get/I0000f6B.xsipnsk/s/1000?1649829720", trailer_url: "https://youtu.be/ArOMXELHiLw", user_id: u01.id, category_id: c01.id)
+Watchable.create(title: "House of Gucci", summary: "Revenge and murder.", rating: "R", favorite: false, streaming: true, poster_url: "https://m.psecn.photoshelter.com/img-get/I0000tTfpO83MQAU/s/1000?1649829720", trailer_url: "https://youtu.be/pGi3Bgn7U5U", user_id: u01.id, category_id: c06.id)
+Watchable.create(title: "All of Us Are Dead", summary: "Zombies.", rating: "TV-MA", favorite: false, streaming: true, poster_url: "https://m.psecn.photoshelter.com/img-get/I0000h9o4KTSgGkc/s/1000?1649829721", trailer_url: "https://youtu.be/pGi3Bgn7U5U", user_id: u01.id, category_id: c08.id)
 
 puts "✅ Done seeding!"
