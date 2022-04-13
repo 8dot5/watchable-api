@@ -31,7 +31,9 @@ class UsersController < ApplicationController
 
   # PATCH /users/# | update a user
   def update
-    if find_user.update(user_params)
+    user = User.find_by(id: session[:user_id])
+    if user
+      user.update(user_params)
       render json: find_user, status: :ok
     else
       render json: find_user.errors, status: :unprocessable_entity
