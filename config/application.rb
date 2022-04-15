@@ -44,6 +44,6 @@ module WatchableApi
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
     # config.action_dispatch.cookies_same_site_protection = :strict
-    config.action_dispatch.cookies_same_site_protection = :none, secure: true
+    config.action_dispatch.cookies_same_site_protection = :none
   end
 end
