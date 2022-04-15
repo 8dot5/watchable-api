@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'watchables.netlify.app'
+    origins 'watchables.netlify.app', 'https://watchables-api.herokuapp.com/'
 
     resource '*',
       headers: :any,
