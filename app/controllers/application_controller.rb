@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::API
-  before_action :set_csrf_cookie #
-  include ActionController::RequestForgeryProtection #
   include ActionController::Cookies
 
   protect_from_forgery with: :exception
@@ -12,10 +10,6 @@ class ApplicationController < ActionController::API
   def hello_world
     session[:count] = (session[:count] || 0) + 1
     render json: { count: session[:count] }
-  end
-
-  def cookie
-    "ok"
   end
 
   # TODO refactor this later
@@ -31,12 +25,5 @@ class ApplicationController < ActionController::API
   def unprocessable_entity_response(response)
     render json: { errors: response.record.errors.full_messages }, status: :unprocessable_entity
   end
-
-  def set_csrf_cookie
-    cookies["CSRF-TOKEN"] = {
-         value: form_authenticity_token,
-         domain: :all
-     }
- end
 
 end
