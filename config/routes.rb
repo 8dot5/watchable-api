@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   # auto-login
   get '/me', to: 'users#show'
+
+  root to: "application#cookie"
 end
